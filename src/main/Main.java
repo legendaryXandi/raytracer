@@ -1,8 +1,13 @@
 package main;
 
+import output.Scene;
+
+import java.awt.*;
+
 public class Main {
 
     public static void main(String args[]){
-        System.out.println("Hello World!");
+        Scene scene = new Scene();
+        scene.writeToFile();
     }
 }
