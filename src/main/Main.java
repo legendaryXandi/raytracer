@@ -1,43 +1,35 @@
 package main;
 
-import basics.Color;
-import basics.light.AmbientLight;
-import basics.light.Light;
-import output.Scene;
-import xml.XMLParser;
-
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
+import xml.Scene;
 
 public class Main {
 
     public static void main(String args[]){
 
-        XMLParser xmlParser = new XMLParser("src/scenes/example1.xml");
-        xmlParser.setAll();
+        Scene scene = new Scene("src/scenes/example1.xml");
+        scene.setAll();
         System.out.println("position: ");
-        System.out.println(xmlParser.getCamera().getPosition().getX());
-        System.out.println(xmlParser.getCamera().getPosition().getY());
-        System.out.println(xmlParser.getCamera().getPosition().getZ());
+        System.out.println(scene.getCamera().getPosition().getX());
+        System.out.println(scene.getCamera().getPosition().getY());
+        System.out.println(scene.getCamera().getPosition().getZ());
         System.out.println("lookAt: ");
-        System.out.println(xmlParser.getCamera().getLookAt().getX());
-        System.out.println(xmlParser.getCamera().getLookAt().getY());
-        System.out.println(xmlParser.getCamera().getLookAt().getZ());
+        System.out.println(scene.getCamera().getLookAt().getX());
+        System.out.println(scene.getCamera().getLookAt().getY());
+        System.out.println(scene.getCamera().getLookAt().getZ());
         System.out.println("up: ");
-        System.out.println(xmlParser.getCamera().getUp().getX());
-        System.out.println(xmlParser.getCamera().getUp().getY());
-        System.out.println(xmlParser.getCamera().getUp().getZ());
+        System.out.println(scene.getCamera().getUp().getX());
+        System.out.println(scene.getCamera().getUp().getY());
+        System.out.println(scene.getCamera().getUp().getZ());
         System.out.println("horizontal_fov: ");
-        System.out.println(xmlParser.getCamera().getAngle());
+        System.out.println(scene.getCamera().getAngle());
         System.out.println("resolution: ");
-        System.out.println(xmlParser.getCamera().getHorizontal());
-        System.out.println(xmlParser.getCamera().getVertical());
+        System.out.println(scene.getCamera().getHorizontal());
+        System.out.println(scene.getCamera().getVertical());
         System.out.println("max_bounces");
-        System.out.println(xmlParser.getCamera().getMaxBounces());
+        System.out.println(scene.getCamera().getMaxBounces());
         System.out.println("lights: ");
-        for(int i = 0; i < xmlParser.getLights().size(); ++i){
-            System.out.println(xmlParser.getLights().get(i));
+        for(int i = 0; i < scene.getLights().size(); ++i){
+            System.out.println(scene.getLights().get(i));
         }
     }
 }

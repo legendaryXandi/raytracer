@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class XMLParser {
+public class Scene {
 
     private String outputFileName;
 
@@ -30,7 +30,7 @@ public class XMLParser {
 
     private Document xmlDocument;
 
-    public XMLParser(String inputFilename) {
+    public Scene(String inputFilename) {
 
         File file = new File(inputFilename);
         DocumentBuilderFactory factory = DocumentBuilderFactory
