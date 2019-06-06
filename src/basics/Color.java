@@ -1,41 +1,41 @@
 package basics;
 
 public class Color {
-    private int r;
-    private int g;
-    private int b;
+    private double r;
+    private double g;
+    private double b;
 
     public Color(){
 
     }
 
-    public Color(int r, int g, int b){
+    public Color(double r, double g, double b) {
         this.r = r;
         this.g = g;
         this.b = b;
     }
 
-    public int getR() {
+    public double getR() {
         return r;
     }
 
-    public void setR(int r) {
+    public void setR(double r) {
         this.r = r;
     }
 
-    public int getG() {
+    public double getG() {
         return g;
     }
 
-    public void setG(int g) {
+    public void setG(double g) {
         this.g = g;
     }
 
-    public int getB() {
+    public double getB() {
         return b;
     }
 
-    public void setB(int b) {
+    public void setB(double b) {
         this.b = b;
     }
 }

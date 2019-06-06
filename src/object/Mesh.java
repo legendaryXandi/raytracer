@@ -12,6 +12,10 @@ public class Mesh implements Surface{
     private MaterialSolid materialSolid;
     private List<Transformations> transformations;
 
+    public Mesh(String name) {
+        this.name = name;
+    }
+
     public Mesh() {
     }
 

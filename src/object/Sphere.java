@@ -14,6 +14,11 @@ public class Sphere implements Surface{
     private MaterialTextured materialTextured;
     private List<Transformations> transformations;
 
+    public Sphere(double radius, Coordinate position) {
+        this.radius = radius;
+        this.position = position;
+    }
+
     public Sphere() {
     }
 
@@ -69,5 +74,16 @@ public class Sphere implements Surface{
 
     public void setTransformations(List<Transformations> transformations) {
         this.transformations = transformations;
+    }
+
+    @Override
+    public String toString() {
+        return "Sphere{" +
+                "radius=" + radius +
+                ", position=" + position +
+                ", materialSolid=" + materialSolid +
+                ", materialTextured=" + materialTextured +
+                ", transformations=" + transformations +
+                '}';
     }
 }

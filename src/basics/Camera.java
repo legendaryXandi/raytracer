@@ -12,6 +12,10 @@ public class Camera {
 
     private int maxBounces;
 
+    public Camera(Coordinate position) {
+        this.position = position;
+    }
+
     public Camera() {
 
     }

@@ -2,6 +2,7 @@ package basics.light;
 
 import basics.Color;
 import basics.Coordinate;
+import basics.Fallof;
 
 public class ParallelLight implements Light{
 
@@ -26,6 +27,16 @@ public class ParallelLight implements Light{
 
     public Coordinate getDirection() {
         return direction;
+    }
+
+    @Override
+    public Coordinate getPosition() {
+        return null;
+    }
+
+    @Override
+    public Fallof getFallof() {
+        return null;
     }
 
     public void setDirection(Coordinate direction) {

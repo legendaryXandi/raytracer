@@ -2,6 +2,7 @@ package basics.light;
 
 import basics.Color;
 import basics.Coordinate;
+import basics.Fallof;
 
 public class PointLight implements Light{
 
@@ -20,12 +21,22 @@ public class PointLight implements Light{
         return color;
     }
 
+    @Override
+    public Coordinate getDirection() {
+        return null;
+    }
+
     public void setColor(Color color) {
         this.color = color;
     }
 
     public Coordinate getPosition() {
         return position;
+    }
+
+    @Override
+    public Fallof getFallof() {
+        return null;
     }
 
     public void setPosition(Coordinate position) {
