@@ -1,15 +1,15 @@
 package basics.light;
 
 import basics.Color;
-import basics.Coordinate;
+import basics.Vec3;
 import basics.Fallof;
 
 public class PointLight implements Light{
 
     private Color color;
-    private Coordinate position;
+    private Vec3 position;
 
-    public PointLight(Color color, Coordinate position) {
+    public PointLight(Color color, Vec3 position) {
         this.color = color;
         this.position = position;
     }
@@ -22,7 +22,7 @@ public class PointLight implements Light{
     }
 
     @Override
-    public Coordinate getDirection() {
+    public Vec3 getDirection() {
         return null;
     }
 
@@ -30,7 +30,7 @@ public class PointLight implements Light{
         this.color = color;
     }
 
-    public Coordinate getPosition() {
+    public Vec3 getPosition() {
         return position;
     }
 
@@ -39,7 +39,7 @@ public class PointLight implements Light{
         return null;
     }
 
-    public void setPosition(Coordinate position) {
+    public void setPosition(Vec3 position) {
         this.position = position;
     }
 }

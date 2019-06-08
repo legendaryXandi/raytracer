@@ -1,15 +1,15 @@
 package basics.light;
 
 import basics.Color;
-import basics.Coordinate;
+import basics.Vec3;
 import basics.Fallof;
 
 public class ParallelLight implements Light{
 
     private Color color;
-    private Coordinate direction;
+    private Vec3 direction;
 
-    public ParallelLight(Color color, Coordinate direction) {
+    public ParallelLight(Color color, Vec3 direction) {
         this.color = color;
         this.direction = direction;
     }
@@ -25,12 +25,12 @@ public class ParallelLight implements Light{
         this.color = color;
     }
 
-    public Coordinate getDirection() {
+    public Vec3 getDirection() {
         return direction;
     }
 
     @Override
-    public Coordinate getPosition() {
+    public Vec3 getPosition() {
         return null;
     }
 
@@ -39,7 +39,7 @@ public class ParallelLight implements Light{
         return null;
     }
 
-    public void setDirection(Coordinate direction) {
+    public void setDirection(Vec3 direction) {
         this.direction = direction;
     }
 }

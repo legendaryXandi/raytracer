@@ -1,17 +1,17 @@
 package basics.light;
 
 import basics.Color;
-import basics.Coordinate;
+import basics.Vec3;
 import basics.Fallof;
 
 public class SpotLight implements Light{
 
     private Color color;
-    private Coordinate direction;
-    private Coordinate position;
+    private Vec3 direction;
+    private Vec3 position;
     private Fallof fallof;
 
-    public SpotLight(Color color, Coordinate direction, Coordinate position, Fallof fallof) {
+    public SpotLight(Color color, Vec3 direction, Vec3 position, Fallof fallof) {
         this.color = color;
         this.direction = direction;
         this.position = position;
@@ -29,19 +29,19 @@ public class SpotLight implements Light{
         this.color = color;
     }
 
-    public Coordinate getDirection() {
+    public Vec3 getDirection() {
         return direction;
     }
 
-    public void setDirection(Coordinate direction) {
+    public void setDirection(Vec3 direction) {
         this.direction = direction;
     }
 
-    public Coordinate getPosition() {
+    public Vec3 getPosition() {
         return position;
     }
 
-    public void setPosition(Coordinate position) {
+    public void setPosition(Vec3 position) {
         this.position = position;
     }
 

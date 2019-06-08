@@ -1,13 +1,13 @@
 package basics.light;
 
 import basics.Color;
-import basics.Coordinate;
+import basics.Vec3;
 import basics.Fallof;
 
 public interface Light {
 
     public Color getColor();
-    public Coordinate getDirection();
-    public Coordinate getPosition();
+    public Vec3 getDirection();
+    public Vec3 getPosition();
     public Fallof getFallof();
 }

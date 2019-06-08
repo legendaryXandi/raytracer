@@ -1,7 +1,7 @@
 package basics.light;
 
 import basics.Color;
-import basics.Coordinate;
+import basics.Vec3;
 import basics.Fallof;
 
 public class AmbientLight implements Light{
@@ -20,12 +20,12 @@ public class AmbientLight implements Light{
     }
 
     @Override
-    public Coordinate getDirection() {
+    public Vec3 getDirection() {
         return null;
     }
 
     @Override
-    public Coordinate getPosition() {
+    public Vec3 getPosition() {
         return null;
     }
 

@@ -1,4 +1,4 @@
-package xml;
+package output;
 
 import basics.*;
 import basics.light.*;
@@ -106,8 +106,8 @@ public class Scene {
         Double positionX = Double.parseDouble(((Element)xmlDocument
                 .getElementsByTagName("camera")
                 .item(0))
-                        .getElementsByTagName("position")
-                        .item(0).getAttributes().getNamedItem("x").getNodeValue());
+                .getElementsByTagName("position")
+                .item(0).getAttributes().getNamedItem("x").getNodeValue());
         Double positionY = Double.parseDouble(((Element)xmlDocument
                 .getElementsByTagName("camera")
                 .item(0))
@@ -119,7 +119,7 @@ public class Scene {
                 .getElementsByTagName("position")
                 .item(0).getAttributes().getNamedItem("z").getNodeValue());
 
-        Coordinate position = new Coordinate(positionX, positionY, positionZ);
+        Vec3 position = new Vec3(positionX, positionY, positionZ);
 
         Double lookAtX = Double.parseDouble(((Element)xmlDocument
                 .getElementsByTagName("camera")
@@ -137,7 +137,7 @@ public class Scene {
                 .getElementsByTagName("lookat")
                 .item(0).getAttributes().getNamedItem("z").getNodeValue());
 
-        Coordinate lookAt = new Coordinate(lookAtX, lookAtY, lookAtZ);
+        Vec3 lookAt = new Vec3(lookAtX, lookAtY, lookAtZ);
 
         Double upX = Double.parseDouble(((Element)xmlDocument
                 .getElementsByTagName("camera")
@@ -155,7 +155,7 @@ public class Scene {
                 .getElementsByTagName("up")
                 .item(0).getAttributes().getNamedItem("z").getNodeValue());
 
-        Coordinate up = new Coordinate(upX, upY, upZ);
+        Vec3 up = new Vec3(upX, upY, upZ);
 
         int horizontalFov = Integer.parseInt(((Element)xmlDocument
                 .getElementsByTagName("camera")
@@ -198,6 +198,10 @@ public class Scene {
 
         System.out.println(outputFileName);
 
+    }
+
+    public String getOutputFileName(){
+        return outputFileName;
     }
 
     public void setLights(List<Light> lights) {
@@ -261,7 +265,7 @@ public class Scene {
                     .getElementsByTagName("direction")
                     .item(0).getAttributes().getNamedItem("z").getNodeValue());
 
-            Coordinate direction = new Coordinate(x,y,z);
+            Vec3 direction = new Vec3(x,y,z);
             ParallelLight parallelLight = new ParallelLight(parallelColor, direction);
             lights.add(parallelLight);
         }
@@ -300,7 +304,7 @@ public class Scene {
                     .getElementsByTagName("position")
                     .item(0).getAttributes().getNamedItem("z").getNodeValue());
 
-            Coordinate position = new Coordinate(x,y,z);
+            Vec3 position = new Vec3(x,y,z);
             PointLight pointLight = new PointLight(pointLightColor, position);
             lights.add(pointLight);
         }
@@ -339,7 +343,7 @@ public class Scene {
                     .getElementsByTagName("position")
                     .item(0).getAttributes().getNamedItem("z").getNodeValue());
 
-            Coordinate position = new Coordinate(x,y,z);
+            Vec3 position = new Vec3(x,y,z);
 
             Double directionX = Double.parseDouble(((Element)xmlDocument
                     .getElementsByTagName("spot_light")
@@ -357,7 +361,7 @@ public class Scene {
                     .getElementsByTagName("direction")
                     .item(0).getAttributes().getNamedItem("z").getNodeValue());
 
-            Coordinate direction = new Coordinate(directionX, directionY, directionZ);
+            Vec3 direction = new Vec3(directionX, directionY, directionZ);
 
             int alpha1 = Integer.parseInt(((Element)xmlDocument
                     .getElementsByTagName("spot_light")
@@ -417,7 +421,7 @@ public class Scene {
                         .getElementsByTagName("position")
                         .item(0).getAttributes().getNamedItem("z").getNodeValue());
 
-                Coordinate spherePosition = new Coordinate(positionX, positionY, positionZ);
+                Vec3 spherePosition = new Vec3(positionX, positionY, positionZ);
 
                 MaterialSolid materialSolid = null;
                 MaterialTextured materialTextured = null;
@@ -576,13 +580,13 @@ public class Scene {
                                     .getAttributes().getNamedItem("z").getNodeValue());
 
                             if(currentTransformation.equals("translate")){
-                                Coordinate translationCoordinate = new Coordinate(x,y,z);
-                                Translation translation = new Translation(translationCoordinate);
+                                Vec3 translationVec3 = new Vec3(x,y,z);
+                                Translation translation = new Translation(translationVec3);
                                 transformations.add(translation);
                             }
                             else if(currentTransformation.equals("scale")){
-                                Coordinate scaleCoordinate = new Coordinate(x,y,z);
-                                Scaling scaling = new Scaling(scaleCoordinate);
+                                Vec3 scaleVec3 = new Vec3(x,y,z);
+                                Scaling scaling = new Scaling(scaleVec3);
                                 transformations.add(scaling);
                             }
 
@@ -805,13 +809,13 @@ public class Scene {
                                     .getAttributes().getNamedItem("z").getNodeValue());
 
                             if(currentTransformation.equals("translate")){
-                                Coordinate translationCoordinate = new Coordinate(x,y,z);
-                                Translation translation = new Translation(translationCoordinate);
+                                Vec3 translationVec3 = new Vec3(x,y,z);
+                                Translation translation = new Translation(translationVec3);
                                 transformations.add(translation);
                             }
                             else if(currentTransformation.equals("scale")){
-                                Coordinate scaleCoordinate = new Coordinate(x,y,z);
-                                Scaling scaling = new Scaling(scaleCoordinate);
+                                Vec3 scaleVec3 = new Vec3(x,y,z);
+                                Scaling scaling = new Scaling(scaleVec3);
                                 transformations.add(scaling);
                             }
 

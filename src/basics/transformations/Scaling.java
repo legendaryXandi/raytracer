@@ -1,22 +1,22 @@
 package basics.transformations;
 
-import basics.Coordinate;
+import basics.Vec3;
 
 public class Scaling implements Transformations {
-    private Coordinate coordinate;
+    private Vec3 vec3;
 
-    public Scaling(Coordinate coordinate) {
-        this.coordinate = coordinate;
+    public Scaling(Vec3 vec3) {
+        this.vec3 = vec3;
     }
 
     public Scaling() {
     }
 
-    public Coordinate getCoordinate() {
-        return coordinate;
+    public Vec3 getVec3() {
+        return vec3;
     }
 
-    public void setCoordinate(Coordinate coordinate) {
-        this.coordinate = coordinate;
+    public void setVec3(Vec3 vec3) {
+        this.vec3 = vec3;
     }
 }

@@ -1,6 +1,6 @@
 package object;
 
-import basics.Coordinate;
+import basics.Vec3;
 import basics.MaterialSolid;
 import basics.MaterialTextured;
 import basics.transformations.Transformations;
@@ -9,12 +9,12 @@ import java.util.List;
 
 public class Sphere implements Surface{
     private double radius;
-    private Coordinate position;
+    private Vec3 position;
     private MaterialSolid materialSolid;
     private MaterialTextured materialTextured;
     private List<Transformations> transformations;
 
-    public Sphere(double radius, Coordinate position) {
+    public Sphere(double radius, Vec3 position) {
         this.radius = radius;
         this.position = position;
     }
@@ -22,14 +22,14 @@ public class Sphere implements Surface{
     public Sphere() {
     }
 
-    public Sphere(double radius, Coordinate position, MaterialSolid materialSolid, List<Transformations> transformations) {
+    public Sphere(double radius, Vec3 position, MaterialSolid materialSolid, List<Transformations> transformations) {
         this.radius = radius;
         this.position = position;
         this.materialSolid = materialSolid;
         this.transformations = transformations;
     }
 
-    public Sphere(double radius, Coordinate position, MaterialTextured materialTextured, List<Transformations> transformations) {
+    public Sphere(double radius, Vec3 position, MaterialTextured materialTextured, List<Transformations> transformations) {
         this.radius = radius;
         this.position = position;
         this.materialTextured = materialTextured;
@@ -44,11 +44,11 @@ public class Sphere implements Surface{
         this.radius = radius;
     }
 
-    public Coordinate getPosition() {
+    public Vec3 getPosition() {
         return position;
     }
 
-    public void setPosition(Coordinate position) {
+    public void setPosition(Vec3 position) {
         this.position = position;
     }
 
@@ -58,6 +58,11 @@ public class Sphere implements Surface{
 
     public void setMaterialSolid(MaterialSolid materialSolid) {
         this.materialSolid = materialSolid;
+    }
+
+    @Override
+    public double calculateIntersection(Vec3 position, Vec3 direction) {
+        return 0;
     }
 
     public MaterialTextured getMaterialTextured() {
