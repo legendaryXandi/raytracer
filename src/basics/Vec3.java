@@ -43,8 +43,18 @@ public class Vec3 {
         return new Vec3(this.x + vec3.x, this.y + vec3.y, this.z + vec3.z);
     }
 
+    public Vec3 add(Vec3 a, Vec3 b, Vec3 c){
+        return new Vec3(a.x + b.x + c.x, a.y + b.y + c.y, a.z + b.z + c.z);
+    }
+
     public Vec3 subtract(Vec3 vec3){
         return new Vec3(this.x - vec3.x, this.y - vec3.y, this.z - vec3.z);
+    }
+
+    public double vecProduct(Vec3 right){
+        return this.getX()*right.getX()
+                +this.getY()*right.getY()
+                +this.getZ()*right.getZ();
     }
 
     public double dotProduct(Vec3 right){
@@ -64,14 +74,16 @@ public class Vec3 {
     }
 
     public Vec3 normalize(){
-        Double lengthOfVector = Math.sqrt(Math.pow(this.getX(),2)
-                +Math.pow(this.getY(),2)
-                +Math.pow(this.getZ(),2));
+        double lengthOfVector = Math.sqrt(this.getX()*this.getX()
+                +this.getY()*this.getY()
+                +this.getZ()*this.getZ());
 
-        if(lengthOfVector != 0.0){
+        if(Math.abs(lengthOfVector) != 0){
             return new Vec3(this.x/lengthOfVector, this.y/lengthOfVector, this.z/lengthOfVector);
         }
 
         return new Vec3(0,0,0);
     }
+
+
 }

@@ -43,14 +43,14 @@ public class Camera {
 
         backVector = position.subtract(lookAt).normalize();
         sideVector = up.crossProduct(backVector).normalize();
-        upVector = backVector.crossProduct(sideVector);
+        upVector = backVector.crossProduct(sideVector).normalize();
 
-        leftBorder = horizontal/2*-1;
-        rightBorder = horizontal/2;
-        topBorder = vertical/2;
-        bottomBorder = vertical/2*-1;
+        leftBorder = horizontal/2.0*-1;
+        rightBorder = horizontal/2.0;
+        topBorder = vertical/2.0;
+        bottomBorder = vertical/2.0*-1;
 
-        fov = topBorder/Math.tan(angle*2)/2;
+        fov = topBorder/Math.tan(Math.PI/4);
         backVectorFOV = backVector.scalarMultiplication(fov*-1);
     }
 

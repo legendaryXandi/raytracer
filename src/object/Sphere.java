@@ -62,6 +62,59 @@ public class Sphere implements Surface{
 
     @Override
     public double calculateIntersection(Vec3 position, Vec3 direction) {
+        //ray(parameter) = eye + parameter*direction
+        //distance between point and center have to be equal to radius.
+        //
+        //use Mitternachtsformel to solve it
+
+        double a = direction.vecProduct(direction);
+        double b = 2*direction.vecProduct(position.subtract(this.position));
+        double c = position.subtract(this.position).vecProduct(position.subtract(this.position)) - Math.pow(radius,2);
+
+        int numberOfResults = 0;
+        double result = 0;
+        double resultPositive = 0;
+        double resultNegative = 0;
+
+        if((Math.pow(b,2)-(4*a*c)) == 0){
+            result = -b/(2*a);
+            numberOfResults = 1;
+        }
+        else if((Math.pow(b,2)-(4*a*c)) > 0){
+
+            resultPositive = (-b+(Math.sqrt(Math.pow(b,2)-(4*a*c))))/(2*a);
+            resultNegative = (-b-(Math.sqrt(Math.pow(b,2)-(4*a*c))))/(2*a);
+            numberOfResults = 2;
+        }
+
+        //no intersection
+        if (numberOfResults == 0){
+            return Double.MAX_VALUE;
+        }//one intersection
+        else if(numberOfResults == 1){
+            return result;
+        }
+        //two intersections
+        else {
+            if(resultPositive < 0 && resultNegative < 0){
+                return Double.MAX_VALUE;
+            }
+            else if (resultPositive < 0){
+                return resultNegative;
+            }
+            else if(resultNegative < 0){
+                return resultPositive;
+            }
+            else{
+                if(resultPositive < resultNegative){
+                    return resultPositive;
+                }
+                else if(resultNegative < resultPositive){
+                    return resultNegative;
+                }
+            }
+        }
+
         return 0;
     }
 

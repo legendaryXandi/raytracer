@@ -2,6 +2,7 @@ package object;
 
 import basics.MaterialSolid;
 import basics.MaterialTextured;
+import basics.Vec3;
 import basics.transformations.Transformations;
 
 import java.util.List;
@@ -37,6 +38,11 @@ public class Mesh implements Surface{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public double calculateIntersection(Vec3 position, Vec3 direction) {
+        return 0;
     }
 
     public MaterialTextured getMaterialTextured() {
