@@ -1,5 +1,7 @@
 package basics;
 
+import java.awt.*;
+
 public class MaterialSolid {
 
     private Color color;

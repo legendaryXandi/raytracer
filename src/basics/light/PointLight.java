@@ -1,8 +1,9 @@
 package basics.light;
 
-import basics.Color;
 import basics.Vec3;
 import basics.Fallof;
+
+import java.awt.*;
 
 public class PointLight implements Light{
 

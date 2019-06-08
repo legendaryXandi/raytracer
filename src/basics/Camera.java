@@ -21,7 +21,7 @@ public class Camera {
     private double topBorder;
     private double bottomBorder;
 
-    private double fov;
+    private double distanceToPlane;
     private Vec3 backVectorFOV;
 
     public Camera(Vec3 position) {
@@ -50,8 +50,8 @@ public class Camera {
         topBorder = vertical/2.0;
         bottomBorder = vertical/2.0*-1;
 
-        fov = topBorder/Math.tan(Math.PI/4);
-        backVectorFOV = backVector.scalarMultiplication(fov*-1);
+        distanceToPlane = topBorder/Math.tan(Math.PI/(360.0/angle/2));
+        backVectorFOV = backVector.scalarMultiplication(distanceToPlane *-1);
     }
 
     public Vec3 getPosition() {
@@ -166,12 +166,12 @@ public class Camera {
         this.bottomBorder = bottomBorder;
     }
 
-    public double getFov() {
-        return fov;
+    public double getDistanceToPlane() {
+        return distanceToPlane;
     }
 
-    public void setFov(double fov) {
-        this.fov = fov;
+    public void setDistanceToPlane(double distanceToPlane) {
+        this.distanceToPlane = distanceToPlane;
     }
 
     public Vec3 getBackVectorFOV() {

@@ -13,6 +13,7 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class Scene {
 
     private String outputFileName;
 
-    private Color backgroundColor = new Color();
+    private Color backgroundColor;
     private Camera camera = new Camera();
     private List<Light> lights = new ArrayList<>();
     private List<Surface> surfaces = new ArrayList<>();
@@ -72,19 +73,19 @@ public class Scene {
     }
 
     private void setBackgroundColor() {
-        Double r = Double.parseDouble(xmlDocument
+        float r = (float)Double.parseDouble(xmlDocument
                 .getElementsByTagName("background_color")
                 .item(0)
                 .getAttributes()
                 .getNamedItem("r")
                 .getNodeValue());
-        Double g = Double.parseDouble(xmlDocument
+        float g = (float) Double.parseDouble(xmlDocument
                 .getElementsByTagName("background_color")
                 .item(0)
                 .getAttributes()
                 .getNamedItem("g")
                 .getNodeValue());
-        Double b = Double.parseDouble(xmlDocument
+        float b = (float) Double.parseDouble(xmlDocument
                 .getElementsByTagName("background_color")
                 .item(0)
                 .getAttributes()
@@ -92,6 +93,9 @@ public class Scene {
                 .getNodeValue());
 
         backgroundColor = new Color(r,g,b);
+
+
+//        Color test = new Color()
     }
 
     public Camera getCamera() {
@@ -210,38 +214,39 @@ public class Scene {
 
     private void setLights() {
         if(xmlDocument.getElementsByTagName("ambient_light").getLength()>0){
-            Double r = Double.parseDouble(((Element)xmlDocument
+            float r = (float) Double.parseDouble(((Element)xmlDocument
                     .getElementsByTagName("ambient_light")
                     .item(0))
                     .getElementsByTagName("color")
                     .item(0).getAttributes().getNamedItem("r").getNodeValue());
-            Double g = Double.parseDouble(((Element)xmlDocument
+            float g = (float) Double.parseDouble(((Element)xmlDocument
                     .getElementsByTagName("ambient_light")
                     .item(0))
                     .getElementsByTagName("color")
                     .item(0).getAttributes().getNamedItem("g").getNodeValue());
-            Double b = Double.parseDouble(((Element)xmlDocument
+            float b = (float) Double.parseDouble(((Element)xmlDocument
                     .getElementsByTagName("ambient_light")
                     .item(0))
                     .getElementsByTagName("color")
                     .item(0).getAttributes().getNamedItem("b").getNodeValue());
+
 
             Color ambientColor = new Color(r,g,b);
             AmbientLight ambientLight = new AmbientLight(ambientColor);
             lights.add(ambientLight);
         }
         if(xmlDocument.getElementsByTagName("parallel_light").getLength()>0){
-            Double r = Double.parseDouble(((Element)xmlDocument
+            float r = (float) Double.parseDouble(((Element)xmlDocument
                     .getElementsByTagName("parallel_light")
                     .item(0))
                     .getElementsByTagName("color")
                     .item(0).getAttributes().getNamedItem("r").getNodeValue());
-            Double g = Double.parseDouble(((Element)xmlDocument
+            float g = (float) Double.parseDouble(((Element)xmlDocument
                     .getElementsByTagName("parallel_light")
                     .item(0))
                     .getElementsByTagName("color")
                     .item(0).getAttributes().getNamedItem("g").getNodeValue());
-            Double b = Double.parseDouble(((Element)xmlDocument
+            float b = (float) Double.parseDouble(((Element)xmlDocument
                     .getElementsByTagName("parallel_light")
                     .item(0))
                     .getElementsByTagName("color")
@@ -270,17 +275,17 @@ public class Scene {
             lights.add(parallelLight);
         }
         if(xmlDocument.getElementsByTagName("point_light").getLength()>0){
-            Double r = Double.parseDouble(((Element)xmlDocument
+            float r = (float) Double.parseDouble(((Element)xmlDocument
                     .getElementsByTagName("point_light")
                     .item(0))
                     .getElementsByTagName("color")
                     .item(0).getAttributes().getNamedItem("r").getNodeValue());
-            Double g = Double.parseDouble(((Element)xmlDocument
+            float g = (float) Double.parseDouble(((Element)xmlDocument
                     .getElementsByTagName("point_light")
                     .item(0))
                     .getElementsByTagName("color")
                     .item(0).getAttributes().getNamedItem("g").getNodeValue());
-            Double b = Double.parseDouble(((Element)xmlDocument
+            float b = (float) Double.parseDouble(((Element)xmlDocument
                     .getElementsByTagName("point_light")
                     .item(0))
                     .getElementsByTagName("color")
@@ -309,17 +314,17 @@ public class Scene {
             lights.add(pointLight);
         }
         if(xmlDocument.getElementsByTagName("spot_light").getLength()>0){
-            Double r = Double.parseDouble(((Element)xmlDocument
+            float r = (float) Double.parseDouble(((Element)xmlDocument
                     .getElementsByTagName("spot_light")
                     .item(0))
                     .getElementsByTagName("color")
                     .item(0).getAttributes().getNamedItem("r").getNodeValue());
-            Double g = Double.parseDouble(((Element)xmlDocument
+            float g = (float) Double.parseDouble(((Element)xmlDocument
                     .getElementsByTagName("spot_light")
                     .item(0))
                     .getElementsByTagName("color")
                     .item(0).getAttributes().getNamedItem("g").getNodeValue());
-            Double b = Double.parseDouble(((Element)xmlDocument
+            float b = (float) Double.parseDouble(((Element)xmlDocument
                     .getElementsByTagName("spot_light")
                     .item(0))
                     .getElementsByTagName("color")
@@ -430,23 +435,22 @@ public class Scene {
                         .item(sphereCount)).getElementsByTagName("material_solid").getLength()>0){
 
 
-                    Double r = Double.parseDouble(((Element) ((Element) xmlDocument
+                    float r = (float) Double.parseDouble(((Element) ((Element) xmlDocument
                             .getElementsByTagName("sphere").item(sphereCount))
                             .getElementsByTagName("material_solid").item(0))
                             .getElementsByTagName("color").item(0)
                             .getAttributes().getNamedItem("r").getNodeValue());
-                    Double g = Double.parseDouble(((Element) ((Element) xmlDocument
+                    float g = (float) Double.parseDouble(((Element) ((Element) xmlDocument
                             .getElementsByTagName("sphere").item(sphereCount))
                             .getElementsByTagName("material_solid").item(0))
                             .getElementsByTagName("color").item(0)
                             .getAttributes().getNamedItem("g").getNodeValue());
-                    Double b = Double.parseDouble(((Element) ((Element) xmlDocument
+                    float b = (float) Double.parseDouble(((Element) ((Element) xmlDocument
                             .getElementsByTagName("sphere").item(sphereCount))
                             .getElementsByTagName("material_solid").item(0))
                             .getElementsByTagName("color").item(0)
                             .getAttributes().getNamedItem("b").getNodeValue());
 
-                    Color sphereColor = new Color(r,g,b);
 
 
                     Double ka = Double.parseDouble(((Element) ((Element) xmlDocument
@@ -470,6 +474,10 @@ public class Scene {
                             .getElementsByTagName("phong").item(0)
                             .getAttributes().getNamedItem("exponent").getNodeValue());
 
+                    r = (float) (r*ka);
+                    g = (float) (g*ka);
+                    b = (float) (b*ka);
+                    Color sphereColor = new Color(r,g,b);
                     Phong spherePhong = new Phong(ka, kd, ks, exponent);
 
                     Double reflectance = Double.parseDouble(((Element) ((Element) xmlDocument
@@ -659,23 +667,22 @@ public class Scene {
                         .item(meshCount)).getElementsByTagName("material_solid").getLength()>0){
 
 
-                    Double r = Double.parseDouble(((Element) ((Element) xmlDocument
+                    float r = (float) Double.parseDouble(((Element) ((Element) xmlDocument
                             .getElementsByTagName("mesh").item(meshCount))
                             .getElementsByTagName("material_solid").item(0))
                             .getElementsByTagName("color").item(0)
                             .getAttributes().getNamedItem("r").getNodeValue());
-                    Double g = Double.parseDouble(((Element) ((Element) xmlDocument
+                    float g = (float) Double.parseDouble(((Element) ((Element) xmlDocument
                             .getElementsByTagName("mesh").item(meshCount))
                             .getElementsByTagName("material_solid").item(0))
                             .getElementsByTagName("color").item(0)
                             .getAttributes().getNamedItem("g").getNodeValue());
-                    Double b = Double.parseDouble(((Element) ((Element) xmlDocument
+                    float b = (float) Double.parseDouble(((Element) ((Element) xmlDocument
                             .getElementsByTagName("mesh").item(meshCount))
                             .getElementsByTagName("material_solid").item(0))
                             .getElementsByTagName("color").item(0)
                             .getAttributes().getNamedItem("b").getNodeValue());
 
-                    Color meshColor = new Color(r,g,b);
 
 
                     Double ka = Double.parseDouble(((Element) ((Element) xmlDocument
@@ -699,6 +706,10 @@ public class Scene {
                             .getElementsByTagName("phong").item(0)
                             .getAttributes().getNamedItem("exponent").getNodeValue());
 
+                    r = (float) (r*ka);
+                    g = (float) (g*ka);
+                    b = (float) (b*ka);
+                    Color meshColor = new Color(r,g,b);
                     Phong meshPhong = new Phong(ka, kd, ks, exponent);
 
                     Double reflectance = Double.parseDouble(((Element) ((Element) xmlDocument

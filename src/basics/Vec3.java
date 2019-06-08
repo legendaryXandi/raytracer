@@ -78,7 +78,7 @@ public class Vec3 {
                 +this.getY()*this.getY()
                 +this.getZ()*this.getZ());
 
-        if(Math.abs(lengthOfVector) != 0){
+        if(lengthOfVector != 0.0){
             return new Vec3(this.x/lengthOfVector, this.y/lengthOfVector, this.z/lengthOfVector);
         }
 

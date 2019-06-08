@@ -2,15 +2,12 @@ package output;
 
 import basics.Camera;
 import basics.Vec3;
-import object.Sphere;
 import object.Surface;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Image {
@@ -32,6 +29,10 @@ public class Image {
 
        Camera camera = scene.getCamera();
         List<Surface> surfaces = scene.getSurfaces();
+
+        System.out.println(surfaces.get(0).getMaterialSolid().getColor());
+        System.out.println(surfaces.get(1).getMaterialSolid().getColor());
+        System.out.println(surfaces.get(2).getMaterialSolid().getColor());
 //        Vec3 position, Vec3 lookAt, Vec3 up, int angle, int horizontal, int vertical, int maxBounces
 //        Camera camera = new Camera(new Vec3(0,0,-10),new Vec3(0,0,0), new Vec3(0,1,0),45,512,512,50);
 //        List<Surface> surfaces = new ArrayList<>();
@@ -111,11 +112,11 @@ public class Image {
 
                 //kugel erwischt
                 if(surface != null){
-                    bufferedImage.setRGB(i,j, Color.WHITE.getRGB());
+                    bufferedImage.setRGB(i,j, surface.getMaterialSolid().getColor().getRGB());
                 }
                 //hintergrund erwischt
                 else{
-                    bufferedImage.setRGB(i,j,Color.BLACK.getRGB());
+                    bufferedImage.setRGB(i,j,scene.getBackgroundColor().getRGB());
                 }
 
             }

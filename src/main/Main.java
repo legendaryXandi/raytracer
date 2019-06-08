@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String args[]){
 
-        Image image = new Image("src/scenes/example1.xml");
+        Image image = new Image("src/scenes/example2.xml");
         image.create();
 
         /*Sphere s = new Sphere();
@@ -42,5 +42,11 @@ public class Main {
         Camera camera = new Camera(new Vec3(0,0,-10),new Vec3(0,0,0), new Vec3(0,1,0),45,512,512,50);
 
         System.out.println(camera.getSideVector().getX() + "|" + camera.getSideVector().getY() + "|" + camera.getSideVector().getZ());
+
+        int anteil = 360/45/2;
+//        System.out.println(anteil);
+        System.out.println(Math.PI/(360/45/2));
+        System.out.println(Math.PI/4);
+        System.out.println(0.5*255);
     }
 }
