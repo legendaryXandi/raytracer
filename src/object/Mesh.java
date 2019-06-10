@@ -45,6 +45,11 @@ public class Mesh implements Surface{
         return 0;
     }
 
+    @Override
+    public Vec3 calculateNormal(Vec3 point) {
+        return null;
+    }
+
     public MaterialTextured getMaterialTextured() {
         return materialTextured;
     }
@@ -55,6 +60,11 @@ public class Mesh implements Surface{
 
     public MaterialSolid getMaterialSolid() {
         return materialSolid;
+    }
+
+    @Override
+    public int calculatePhongColor(Vec3 currentRay, Vec3 position) {
+        return 0;
     }
 
     public void setMaterialSolid(MaterialSolid materialSolid) {

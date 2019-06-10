@@ -56,6 +56,11 @@ public class Sphere implements Surface{
         return materialSolid;
     }
 
+    @Override
+    public int calculatePhongColor(Vec3 point, Vec3 cameraOrigin) {
+        return materialSolid.calculatePhongColor(point, cameraOrigin);
+    }
+
     public void setMaterialSolid(MaterialSolid materialSolid) {
         this.materialSolid = materialSolid;
     }
@@ -132,6 +137,10 @@ public class Sphere implements Surface{
 
     public void setTransformations(List<Transformations> transformations) {
         this.transformations = transformations;
+    }
+
+    public Vec3 calculateNormal(Vec3 point){
+        return point.subtract(position).normalize();
     }
 
     @Override

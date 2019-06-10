@@ -474,9 +474,9 @@ public class Scene {
                             .getElementsByTagName("phong").item(0)
                             .getAttributes().getNamedItem("exponent").getNodeValue());
 
-                    r = (float) (r*ka);
+                    /*r = (float) (r*ka);
                     g = (float) (g*ka);
-                    b = (float) (b*ka);
+                    b = (float) (b*ka);*/
                     Color sphereColor = new Color(r,g,b);
                     Phong spherePhong = new Phong(ka, kd, ks, exponent);
 
@@ -500,6 +500,7 @@ public class Scene {
 
 //                    System.out.println("solid!");
                     materialSolid = new MaterialSolid(sphereColor, spherePhong, reflectance, transmittance, refraction);
+                    materialSolid.setLights(lights);
                 }
                 if (((Element) xmlDocument.getElementsByTagName("sphere")
                         .item(sphereCount)).getElementsByTagName("material_textured").getLength()>0){
@@ -633,6 +634,7 @@ public class Scene {
 
                 if(materialSolid!= null){
                     sphere.setMaterialSolid(materialSolid);
+                    materialSolid.setSphere(sphere);
                 }
                 if(materialTextured!= null){
                     sphere.setMaterialTextured(materialTextured);
@@ -706,9 +708,9 @@ public class Scene {
                             .getElementsByTagName("phong").item(0)
                             .getAttributes().getNamedItem("exponent").getNodeValue());
 
-                    r = (float) (r*ka);
+                    /*r = (float) (r*ka);
                     g = (float) (g*ka);
-                    b = (float) (b*ka);
+                    b = (float) (b*ka);*/
                     Color meshColor = new Color(r,g,b);
                     Phong meshPhong = new Phong(ka, kd, ks, exponent);
 
@@ -732,6 +734,7 @@ public class Scene {
 
 //                    System.out.println("solid!");
                     materialSolid = new MaterialSolid(meshColor, meshPhong, reflectance, transmittance, refraction);
+                    materialSolid.setLights(lights);
                 }
                 if (((Element) xmlDocument.getElementsByTagName("mesh")
                         .item(meshCount)).getElementsByTagName("material_textured").getLength()>0){
